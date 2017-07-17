@@ -13,10 +13,12 @@ class LyricCreate extends Component {
     onSubmit(event) {
         event.preventDefault();
 
-        // this.props.mutate({
-        //     variables: { songId: this.state.title },
-        //     refetchQueries: [{ query: query }]
-        // }).then(() => hashHistory.push('/'));
+        this.props.mutate({
+            variables: {
+                songId: this.props.songId,
+                content: this.state.content
+            }
+        }).then(() => this.setState({ content: '' }));
     }
 
     render() {
